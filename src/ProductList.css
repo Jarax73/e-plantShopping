@@ -47,6 +47,20 @@ body {
     align-items: center;
     justify-content: center;
 }
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100vw;
+}
+.category-list {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    border-top : 2px solid #ccc;
+    border-bottom : 2px solid #ccc;
+}
 .product-list {
     display: flex;
     flex-wrap: wrap;

@@ -9,7 +9,6 @@ function ProductList({ onHomeClick }) {
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
-    console.log('Items', cartItems);
 
     const plantsArray = [
         {
@@ -265,7 +264,7 @@ function ProductList({ onHomeClick }) {
             ...prevState, [item.name] : true
         }))
     }
-    console.log('To cart', addedToCart)
+    
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -290,8 +289,8 @@ function ProductList({ onHomeClick }) {
                 <div className="product-grid">
                 {plantsArray.map((category, index) => ( 
                     <div key={index}> 
-                        <h1>
-                            <div>{category.category}</div>
+                        <h1 className='category-container'>
+                            <div className='category-list'>{category.category}</div>
                         </h1>
                         <div className="product-list">
                             {category.plants.map((plant, plantIndex) => (
@@ -303,7 +302,7 @@ function ProductList({ onHomeClick }) {
                                 />
                                 <div className="product-title">{plant.name}</div>
                                 <div className="product-description">{plant.description}</div>
-                                <div className="product-cost">${plant.cost}</div>
+                                <div className="product-price">${plant.cost}</div>
                                 <button
                                 className="product-button"
                                 onClick={() => handleAddToCart(plant)}
