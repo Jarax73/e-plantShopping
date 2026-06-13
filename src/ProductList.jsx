@@ -8,7 +8,7 @@ function ProductList({ onHomeClick }) {
     const [showPlants, setShowPlants] = useState(false);
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart);
+    const cartItems = useSelector((state) => state.cart.items);
 
     const plantsArray = [
         {
@@ -263,6 +263,11 @@ function ProductList({ onHomeClick }) {
         setAddedToCart((prevState) => ({
             ...prevState, [item.name] : true
         }))
+    }
+    const calculateTotalQuantity = () => {
+        let total = 0;
+        cartItems?.forEach(item => total += item.quantity)
+        return total;
     }
     
     return (
